@@ -1,0 +1,558 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  background-color: #ffffff;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 2px solid #d9d9d9;
+  margin: auto;
+  /* margin-bottom: 30px; */
+  position: fixed;
+  z-index: 20;
+}
+
+.logo {
+  color: #0088a9;
+  font-size: 32px;
+  cursor: pointer;
+  padding-right: 30px;
+}
+
+.link ul {
+  display: flex;
+}
+
+.link li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+.link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.link a:hover {
+  color: #0088a9;
+}
+
+a.focus {
+  color: #0088a9;
+}
+
+.login {
+  position: relative;
+  left: 48%;
+}
+
+button a {
+  text-decoration: none;
+  color: #e4f0f1;
+}
+
+.login button {
+  background-color: #61c7b5;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login button:hover {
+  background-color: #0088a999;
+}
+
+.login button:active {
+  background-color: #0088a900;
+  transform: translateY(2px);
+}
+
+/* .header-bg {
+  padding: 100px;
+} */
+
+/* header {
+  height: 420px;
+
+  background-size: cover;
+} */
+
+.header-bg {
+  background-color: #f6f8fc;
+}
+
+.header-bg-img img {
+  text-align: center;
+  width: 465px;
+  height: 420px;
+  position: relative;
+  left: 60%;
+  margin-top: 85px;
+  z-index: 11;
+}
+/* End Header */
+
+/* Banner Content */
+
+.banner-content {
+  width: 923px;
+  height: 349px;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  background-color: #f6f8fc;
+}
+
+.banner-header {
+  width: 461px;
+  height: 98px;
+}
+
+.banner-header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+  color: #535556;
+}
+
+.banner-header p {
+  font-size: 14px;
+  color: #666;
+}
+
+.content-halok {
+  width: 924px;
+  height: 129px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 180px;
+  height: 120px;
+  /* background-color: red; */
+  background-color: #ffffff;
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.card:hover {
+  border: 2px solid rgb(123, 123, 123);
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+}
+
+.card-img img {
+  margin-top: 5px;
+  width: 75px;
+  height: 75px;
+}
+
+.card-text p {
+  font-size: 14px;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #535556;
+}
+
+.card-text a {
+  text-decoration: none;
+  color: #535556;
+}
+
+.card-download {
+  width: 378px;
+  height: 88px;
+  /* text-align: center; */
+  background-color: white;
+  border: 2px solid #d9d9d9;
+  padding-top: 5px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-download:hover {
+  border: 2px solid rgb(123, 123, 123);
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.logo-download img {
+  width: 32px;
+  height: 32px;
+}
+
+.card-download h2 {
+  font-size: 16px;
+  padding-bottom: 5px;
+  color: #535556;
+}
+
+.card-download p {
+  font-size: 12px;
+}
+
+.text-download {
+  width: 282px;
+  height: 64px;
+  padding-left: 15px;
+}
+
+.fa-download {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+/* End */
+
+/* Dokter */
+
+.dokter {
+  padding-top: 68px;
+}
+
+.dokter-header {
+  width: 1213px;
+  height: 36px;
+  color: #535556;
+  margin: auto;
+}
+
+.container-dokter {
+  width: 1213px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-dokter {
+  margin-top: 50px;
+  width: 202px;
+  height: 202px;
+  background-color: #f6f8fc;
+  padding-top: 20px;
+  border: 2px solid #d9d9d9;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.card-dokter:hover {
+  border: 2px solid rgb(123, 123, 123);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.dokter-img {
+  width: 130px;
+  height: 80px;
+  /* background-color: red; */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.dokter-img img {
+  width: 80px;
+  height: 80px;
+}
+
+.dokter-text {
+  color: #535556;
+  text-align: center;
+}
+
+.dokter-text p {
+  cursor: pointer;
+}
+/* End Dokter */
+
+.artikel {
+  max-width: 100%;
+  height: 570px;
+  margin-top: 68px;
+  background-color: #f6f8fc;
+}
+
+.header-artikel {
+  max-width: 1180px;
+  color: #535556;
+  margin: auto;
+  padding-top: 68px;
+}
+
+.artikel-list {
+  max-width: 1180px;
+  color: #535556;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.artikel-list ul {
+  display: flex;
+  width: 68px;
+  height: 36px;
+}
+
+.artikel-list li {
+  list-style: none;
+  font-size: 14px;
+  /* background: red; */
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 91px;
+  cursor: pointer;
+  border: 2px solid #d9d9d9;
+  transition: all 0.3s;
+}
+
+.artikel-list li:hover {
+  background-color: #ceebfb;
+  border: 2px solid #3f8dba;
+  color: #3f8dba;
+}
+
+.artikel-list .span {
+  background-color: #ceebfb;
+  border: 2px solid #3f8dba;
+  color: #3f8dba;
+}
+
+.artikel-item {
+  max-width: 1180px;
+  padding-top: 50px;
+  /* height: 285px; */
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.artikel-card {
+  width: 280px;
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+}
+
+.artikel-card:hover {
+  border: 2px solid rgb(123, 123, 123);
+}
+
+.artikel-card img {
+  width: 100%;
+  height: 157px;
+  border-radius: 4px 4px 0 0;
+}
+
+.artikel-text {
+  width: 260px;
+  height: 140px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button-text {
+  margin: 10px 0;
+  background-color: #ceebfb;
+  width: 50%;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 5px;
+  color: #3f8dba !important;
+}
+
+.artikel-text h4 {
+  font-size: 14px;
+}
+
+.artikel-text p {
+  font-size: 12px;
+  color: #535556;
+}
+/* End Artikel */
+
+.about {
+  max-width: 1180px;
+  height: 406px;
+  margin: 0 auto 48px;
+  padding-top: 68px;
+  display: flex;
+}
+
+.about-img {
+  width: 475px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img img {
+  width: 406px;
+  height: 406px;
+  border-radius: 5px;
+}
+
+.about-text {
+  color: #535556;
+  width: 665px;
+  height: 406px;
+  padding: 0 16px 16px 16px;
+  /* line-height: 23px; */
+}
+
+.about-text h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  cursor: default;
+}
+
+.about-text p {
+  font-size: 17px;
+  margin-bottom: 16px;
+  cursor: default;
+}
+/* End About */
+
+.kontak {
+  height: 948px;
+  padding: 68px 0 48px 0;
+  color: #535556;
+}
+
+.kontak-header {
+  max-width: 1175px;
+  margin: 68px auto 0;
+}
+
+.kontak-header h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.container-kontak {
+  width: 1175px;
+  height: 555px;
+  margin: auto;
+  display: flex;
+}
+
+.form-kontak {
+  width: 570px;
+  display: flex;
+  flex-direction: row;
+}
+
+.label {
+  width: 540px;
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 15px;
+}
+
+.label input,
+textarea {
+  margin-top: 10px;
+  color: #535556;
+}
+
+input {
+  width: 540px;
+  height: 61px;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid #d9d9d9;
+}
+
+textarea {
+  width: 540px;
+  height: 120px;
+  padding: 20px;
+  margin-bottom: 21px;
+  border-radius: 20px;
+  border: 1px solid #d9d9d9;
+}
+
+.kirim {
+  margin-top: 70px;
+}
+
+.kirim input {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #61c7b5;
+}
+
+.form-social {
+  display: flex;
+  flex-direction: column;
+  width: 570px;
+  justify-content: center;
+}
+
+.social-img {
+  display: flex;
+  justify-content: center;
+}
+
+.social-img img {
+  width: 300px;
+  height: 300px;
+}
+
+.kontak-email {
+  display: flex;
+  flex-direction: column;
+  /* line-height: 25px; */
+}
+
+.kontak-email p {
+  color: #535556;
+  font-size: 13px;
+  cursor: default;
+}
+
+.kontak-email i {
+  color: #61c7b5;
+  margin-right: 8px;
+}
+
+.kontak-email a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+
+.email {
+  margin-bottom: 30px;
+}

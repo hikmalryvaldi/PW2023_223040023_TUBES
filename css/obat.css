@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+  scroll-behavior: smooth;
+}
+
+.img img {
+  width: 186px;
+  height: 186px;
+  border-radius: 10px 10px 20px 0;
+}
+
+.header-produk-card {
+  width: 800px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.header-produk-card h1 {
+  font-size: 20px;
+}
+
+.link {
+  width: 800px;
+  margin: 10px auto;
+  height: 22px;
+}
+
+.link ul {
+  display: flex;
+  gap: 20px;
+}
+
+.link li {
+  font-size: 12px;
+  list-style: none;
+  font-weight: bold;
+}
+
+.link a {
+  text-decoration: none;
+  color: #61c7b5;
+}
+
+.link span {
+  color: black;
+  cursor: default;
+}
+
+.produk-card {
+  width: 800px;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 186px;
+  height: 330px;
+  background-color: #f6f8fc;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.text {
+  width: 186px;
+  height: 137px;
+  padding: 8px;
+  cursor: default;
+}
+
+.nama-produk {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.detail-harga {
+  margin-bottom: 6px;
+}
+
+.harga-produk {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.d-produk {
+  display: flex;
+  align-items: center;
+}
+
+.diskon-produk {
+  font-size: 10px;
+  margin-right: 4px;
+  color: #f94d63;
+  font-weight: bold;
+  background-color: #ffdbe2;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 30px;
+  border-radius: 3px;
+}
+
+.harga-asli-produk {
+  font-size: 10px;
+  text-decoration: line-through;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating i {
+  color: orange;
+  font-size: 13px;
+}
+
+.rating span {
+  padding: 3px;
+  font-size: 11px;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: white;
+  width: 170px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 5px;
+  border: 1px solid #fa591d;
+  cursor: pointer;
+}
+
+.detail a {
+  color: #fa591d;
+  text-decoration: none;
+  font-weight: bold;
+}
