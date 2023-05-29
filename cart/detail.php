@@ -1,3 +1,14 @@
+<?php
+require '../functions.php';
+
+// ambil data di url
+$id = $_GET["id"];
+
+// query data berdasarkan id
+$obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obat Asam Urat</title>
+    <title>Details</title>
     <!-- Font Aws -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -19,31 +30,31 @@
             <i class="fa-solid fa-chevron-right"></i>
             <li><a href="../obat.php">Obat</a></li>
             <i class="fa-solid fa-chevron-right"></i>
-            <li><a href="#"><span>Obat Syaraf Kejepit</span></a></li>
+            <li><a href="#"><span></span></a></li>
         </ul>
     </div>
 
     <div class="container">
         <div class="box-left">
-            <img src="../img/produk4.jpg" alt="produk">
+            <img src="../img/<?= $obat["gambar"]; ?>" alt="produk">
         </div>
 
         <div class="box-right">
             <div class="produk">
                 <div class="nama-produk">
-                    Obat Madu Prowasir
+                    <?= $obat["nama"]; ?>
                 </div>
 
-                <div class="rating">
-                    <p>Terjual <span>250+</span></p>
+                <div class=" rating">
+                    <p>Terjual <span>500+</span></p>
                     <i class="fa-solid fa-star"></i>
-                    <p>4.9 <span>(575 rating)</span></p>
+                    <p>5.0 <span>(575 rating)</span></p>
                     <p>Diskusi <span>(76)</span>
                     </p>
                 </div>
 
                 <div class="harga">
-                    <h1>Rp 360.000</h1>
+                    <h1>Rp <?= $obat["harga"]; ?>.000</h1>
 
                     <div class="promo">
                         <div class="diskon">
@@ -51,7 +62,7 @@
                         </div>
 
                         <div class="harga-asli">
-                            Rp 336.000
+                            Rp <?= $obat["harga_awal"]; ?>.000
                         </div>
                     </div>
                 </div>
@@ -72,16 +83,19 @@
                     <p>kondisi: <span>Baru</span></p>
                     <p>Berat Satuan: <span>628 g</span></p>
                     <p>Kategori: <span class="bold">Obat Herbal</span></p>
-                    <p>Etalase: <span class="bold">Obat</span></p>
+                    <p>Stok: <span class="bold"><?= $obat["stok"]; ?></span></p>
                 </div>
 
                 <div class="beli">
-                    <button><a href="#">Beli</a></button>
+                    <button>
+                        <a href="../cart/beli.php?id=<?= $row["id"]; ?>">Beli</a>
+                    </button>
                 </div>
             </div>
 
         </div>
     </div>
+
 </body>
 
 </html>

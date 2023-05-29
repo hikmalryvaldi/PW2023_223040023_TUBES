@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+}
+
+.box-left {
+  width: 300px;
+  height: 500px;
+  background-color: grey;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  background-color: darkcyan;
+}
+
+.logo h1 {
+  cursor: default;
+}
+
+.admin {
+  margin: auto;
+  width: 150px;
+  height: 380px;
+  margin-top: 40px;
+}
+
+.admin li {
+  height: 40px;
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 60px;
+  transition: all 0.5s;
+}
+
+.admin li:hover {
+  transform: translate(-1rem, -1ex);
+  background-color: red;
+  border-radius: 5px;
+}
+/* End */
+
+.box-right {
+  width: 1200px;
+  height: 700px;
+}
+
+.header {
+  width: 1200px;
+  height: 60px;
+  background-color: rgb(180, 169, 169);
+  padding: 20px;
+  color: blue;
+}
+
+.header p {
+  cursor: default;
+}
+
+.data_produk {
+  margin: 50px;
+  width: 900px;
+  height: 500px;
+  border: 1px solid grey;
+  border-bottom: none;
+}
+
+.daftar_produk {
+  padding: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.daftar_produk h4 {
+  font-size: 20px;
+  cursor: default;
+}
+
+.tambah_obat {
+  padding: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.tambah_obat a {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(47, 255, 102);
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+table {
+  width: 900px;
+  text-align: center;
+}
+
+table td {
+  padding: 5px;
+}

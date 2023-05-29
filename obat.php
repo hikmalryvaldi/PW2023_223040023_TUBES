@@ -1,3 +1,9 @@
+<?php
+require 'functions.php';
+$toko_obat = ambilData("SELECT * FROM obat");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,52 +29,58 @@
             <li><a href="page.php">Home</a></li>
             <i class="fa-solid fa-chevron-right"></i>
             <li><a href="#"><span>Obat</span></a></li>
+            <i class="fa-solid fa-chevron-right"></i>
+            <li><a href="tambah.php">Tambah Obat</a></li>
         </ul>
     </div>
 
     <div class="produk-card">
-        <div class="card">
-            <div class="img">
-                <img src="img/produk1.jpg" alt="produk">
-            </div>
 
-            <div class="text">
-                <div class="nama-produk">
-                    Asam Urat
+        <?php foreach ($toko_obat as $row) : ?>
+            <div class="card">
+                <div class="img">
+                    <img src="img/<?= $row["gambar"]; ?>" width="50" alt="produk">
                 </div>
 
-                <div class="detail-harga">
-                    <div class="harga-produk">
-                        Rp 336.000
+                <div class="text">
+                    <div class="nama-produk">
+                        <?= $row["nama"]; ?>
                     </div>
 
-                    <div class="d-produk">
-                        <div class="diskon-produk">
-                            20%
+                    <div class="detail-harga">
+                        <div class="harga-produk">
+                            Rp <?= $row["harga"]; ?>.000
                         </div>
 
-                        <div class="harga-asli-produk">
-                            Rp 420.000
+                        <div class="d-produk">
+                            <div class="diskon-produk">
+                                20%
+                            </div>
+
+                            <div class="harga-asli-produk">
+                                Rp <?= $row["harga_awal"]; ?>.000
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="rating">
+                        <i class="fa-solid fa-star">
+                        </i>
+                        <span>5.0</span>
+                        <span>|</span>
+                        <span>Terjual 500+</span>
+                    </div>
+
+                    <div class="detail">
+                        <button type="submit" name="test"><a href="cart/detail.php?id=<?= $row["id"]; ?>">Detail</a></button>
                     </div>
                 </div>
 
-                <div class="rating">
-                    <i class="fa-solid fa-star">
-                    </i>
-                    <span>5.0</span>
-                    <span>|</span>
-                    <span>Terjual 500+</span>
-                </div>
-
-                <div class="detail">
-                    <button><a href="detail_produk/produk1.php">Detail</a></button>
-                </div>
             </div>
 
-        </div>
+        <?php endforeach ?>
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="img">
                 <img src="img/produk2.jpg" alt="produk">
             </div>
@@ -353,7 +365,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
 </body>
 
