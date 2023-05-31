@@ -24,7 +24,11 @@ function tambah($post)
     $harga = htmlspecialchars($post["harga"]);
     $hargaAwal = htmlspecialchars($post["harga_awal"]);
     $stok = htmlspecialchars($post["stok"]);
-    $gambar = htmlspecialchars($post["gambar"]);
+
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
 
     // query insert data
     $query = "INSERT INTO obat
@@ -36,6 +40,53 @@ function tambah($post)
     // akan mengecek data berhasil ditambahkan atau tidak
     return mysqli_affected_rows($koneksi);
 };
+
+function upload()
+{
+
+    $namaFile = $_FILES["gambar"]["name"];
+    $ukuranFile = $_FILES["gambar"]["size"];
+    $error = $_FILES["gambar"]["error"];
+    $tmpName = $_FILES["gambar"]["tmp_name"];
+
+    if ($error === 4) {
+        echo "<script>
+            alert('Pilih Gambar');        
+        </script>";
+
+        return false;
+    }
+
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    // $ekstensiGambar = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "<script>
+            alert('Yang Di Upload Bukan Gambar!!');        
+        </script>";
+
+        return false;
+    }
+
+    if ($ukuranFile > 1000000) {
+        echo "<script>
+            alert('Ukuran Gambar Terlalu Besar!!');        
+        </script>";
+
+        return false;
+    }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+
+
+    move_uploaded_file($tmpName, '../img/' . $namaFileBaru);
+
+    return $namaFileBaru;
+}
 
 function hapus($id)
 {
@@ -51,12 +102,17 @@ function ubah($post)
     global $koneksi;
 
     $id = $post["id"];
-
     $nama = htmlspecialchars($post["nama"]);
     $harga = htmlspecialchars($post["harga"]);
     $hargaAwal = htmlspecialchars($post["harga_awal"]);
     $stok = htmlspecialchars($post["stok"]);
-    $gambar = htmlspecialchars($post["gambar"]);
+    $gambarLama = htmlspecialchars($post["gambarLama"]);
+
+    if ($_FILES["gambar"]["error"] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
 
     $query = "UPDATE obat SET
                 nama = '$nama',

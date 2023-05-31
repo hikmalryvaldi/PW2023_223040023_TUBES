@@ -4,13 +4,13 @@ require '../functions.php';
 $id = $_GET["id"];
 
 if (hapus($id) > 0) {
-    echo "<script>
+  echo "<script>
                 alert('Data Berhasil Dihapus!');
-                document.location.href = '../obat.php';
+                document.location.href = 'Admin.php';
               </script>";
 } else {
-    echo "<script>
+  echo "<script>
                 alert('Data Gagal Dihapus!');
-                document.location.href = '../obat.php';
+                document.location.href = 'Admin.php';
               </script>";
 }

@@ -1,18 +1,17 @@
 <?php
 require '../functions.php';
 
-// cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST["submit"])) {
-    // cek apakah data berhasil ditambhakan atau tidak
+
     if (tambah($_POST) > 0) {
         echo "<script>
                 alert('Data Berhasil Ditambahkan!');
-                document.location.href = '../obat.php';
+                document.location.href = 'Admin.php';
               </script>";
     } else {
         echo "<script>
                 alert('Data Gagal Ditambahkan!');
-                document.location.href = '../obat.php';
+                document.location.href = 'Admin.php';
               </script>";
     }
 };
@@ -32,7 +31,7 @@ if (isset($_POST["submit"])) {
 
     <h1>Tambah Obat</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
 
             <li>
@@ -53,7 +52,7 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="gambar">Gambar :</label>
-                <input type="text" name="gambar" id="gambar" required>
+                <input type="file" name="gambar" id="gambar">
             </li>
             <li>
                 <button type="submit" name="submit">Tambah Obat!</button>
