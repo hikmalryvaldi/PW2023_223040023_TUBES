@@ -1,28 +1,19 @@
 <?php
 require '../functions.php';
 
-// ambil data di url
 $id = $_GET["id"];
 
-// query data berdasarkan id
 $obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
 
-// cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST["submit"])) {
-
-    // cek apakah data berhasil di ubah atau tidak
     if (ubah($_POST) > 0) {
         echo "<script>
-                alert('Data Berhasil Diubah!');
-                document.location.href = '../obat.php';
-              </script>";
-    } else {
-        echo "<script>
-                alert('Data Gagal Diubah!');
-                document.location.href = '../obat.php';
-              </script>";
+                alert('data berhasil diubah!');
+                document.location.href = 'Admin.php';
+            </script>";
     }
-};
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +31,7 @@ if (isset($_POST["submit"])) {
     <h1>Ubah Data Obat</h1>
 
     <form action="" method="post">
+        <input type="hidden" name="id" value="<?= $obat["id"]; ?>">
         <ul>
 
             <li>
@@ -62,10 +54,7 @@ if (isset($_POST["submit"])) {
                 <label for="gambar">Gambar :</label>
                 <input type="text" name="gambar" id="gambar" required value="<?= $obat["gambar"]; ?>">
             </li>
-            <li>
-                <label for="page">Page :</label>
-                <input type="text" name="page" id="page" required value="<?= $obat["page"]; ?>">
-            </li>
+
             <li>
                 <button type="submit" name="submit">Ubah Data Obat!</button>
             </li>

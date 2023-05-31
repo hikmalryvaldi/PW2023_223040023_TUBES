@@ -25,11 +25,10 @@ function tambah($post)
     $hargaAwal = htmlspecialchars($post["harga_awal"]);
     $stok = htmlspecialchars($post["stok"]);
     $gambar = htmlspecialchars($post["gambar"]);
-    $page = htmlspecialchars($post["page"]);
 
     // query insert data
     $query = "INSERT INTO obat
-     VALUES (NULL, '$nama', '$harga', '$hargaAwal', '$stok', '$gambar', '$page')
+     VALUES (NULL, '$nama', '$harga', '$hargaAwal', '$stok', '$gambar')
     ";
 
     mysqli_query($koneksi, $query);
@@ -44,5 +43,29 @@ function hapus($id)
 
     mysqli_query($koneksi, "DELETE FROM obat WHERE id = $id");
 
+    return mysqli_affected_rows($koneksi);
+};
+
+function ubah($post)
+{
+    global $koneksi;
+
+    $id = $post["id"];
+
+    $nama = htmlspecialchars($post["nama"]);
+    $harga = htmlspecialchars($post["harga"]);
+    $hargaAwal = htmlspecialchars($post["harga_awal"]);
+    $stok = htmlspecialchars($post["stok"]);
+    $gambar = htmlspecialchars($post["gambar"]);
+
+    $query = "UPDATE obat SET
+                nama = '$nama',
+                harga = '$harga',
+                harga_awal = '$hargaAwal',
+                stok = '$stok',
+                gambar = '$gambar'
+              WHERE
+                id = $id";
+    mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
     return mysqli_affected_rows($koneksi);
 }
