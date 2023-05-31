@@ -1,6 +1,10 @@
 <?php
 require '../functions.php';
 $toko_obat = ambilData("SELECT * FROM obat");
+
+if (isset($_POST["cari"])) {
+    $toko_obat = cari($_POST["keyword"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +49,19 @@ $toko_obat = ambilData("SELECT * FROM obat");
 
                 <div class="tambah_obat">
                     <a href="tambah.php">Tambah Obat</a>
+                    <form action="" method="post">
+
+                        <input type="text" name="keyword" size="20" autofocus placeholder="Cari Obat" autocomplete="off">
+                        <button type="submit" name="cari">Cari</button>
+
+                    </form>
                 </div>
 
                 <div class="table_obat">
                     <table border="1" cellpadding="10" cellspacing="0">
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>Obat</th>
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Gambar</th>

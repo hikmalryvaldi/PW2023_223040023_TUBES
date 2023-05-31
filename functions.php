@@ -69,3 +69,15 @@ function ubah($post)
     mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
     return mysqli_affected_rows($koneksi);
 }
+
+function cari($keyword)
+{
+
+    $query = "SELECT * FROM obat
+                WHERE
+                    nama LIKE '%$keyword%' OR 
+                    harga LIKE '%$keyword%' OR
+                    stok LIKE '%$keyword%'
+            ";
+    return ambilData($query);
+}
