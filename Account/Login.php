@@ -34,7 +34,7 @@
 
                 <div class="buttLog">
                     <button type="submit" name="login">Login Now</button>
-                    <p>Don't have an account? <a href="sigup.php">Sigup Now</a></p>
+                    <p>Don't have an account? <a href="Register.php">Sigup Now</a></p>
                 </div>
 
             </form>
