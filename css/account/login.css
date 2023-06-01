@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 450px;
+  height: 400px;
+  position: absolute;
+  top: 20%;
+  right: 35%;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.card {
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+
+span {
+  border-bottom: 5px solid blue;
+}
+
+label {
+  padding-right: 5px;
+}
+
+input {
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #ccc;
+  width: 300px;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+input:focus {
+  border-bottom: 3px solid blue;
+}
+
+.email,
+.pass {
+  height: 40px;
+  /* background-color: green; */
+  line-height: 40px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+#eye:hover {
+  cursor: pointer;
+}
+
+.buttLog {
+  width: 300px;
+  height: 50px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.buttLog p {
+  font-size: 12px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.buttLog a {
+  text-decoration: none;
+}
+
+button {
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+}
