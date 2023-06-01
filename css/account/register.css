@@ -95,3 +95,15 @@ button {
   border-radius: 7px;
   font-weight: bold;
 }
+
+.remember {
+  width: 300px;
+  margin: auto;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.remember input {
+  width: 20px;
+  height: 12px;
+}

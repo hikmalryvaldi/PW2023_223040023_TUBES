@@ -22,7 +22,7 @@
         <form action="" method="post">
             <div class="user">
                 <label for="username"><i class="fa-solid fa-user"></i></label>
-                <input type="username" name="username" id="username" require autofocus placeholder="Enter your name" autocomplete="0">
+                <input type="text" name="username" id="username" require autofocus placeholder="Enter your name" autocomplete="0">
             </div>
 
             <div class="email">
@@ -34,6 +34,11 @@
                 <label for="password"><i class="fa-solid fa-key"></i></label>
                 <input type="password" name="password" id="password" require placeholder="Create your password">
                 <i class="fa-solid fa-eye" id="eye"></i>
+            </div>
+
+            <div class="remember">
+                <input type="checkbox">
+                <label for="me">I accept all terms & conditions</label>
             </div>
 
             <div class="buttRegis">

@@ -1,3 +1,18 @@
+<?php
+
+if (isset($_POST["login"])) {
+
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if ($username === "admin" && $password === "111") {
+        header("Location: ../Dashboard/Admin.php");
+        exit();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,14 +37,25 @@
 
             <form action="" method="post">
                 <div class="email">
-                    <label for="email"><i class="fa-regular fa-envelope"></i></label>
-                    <input type="email" name="email" id="email" require autofocus placeholder="Enter your email" autocomplete="0">
+                    <label for="username"><i class="fa-solid fa-user"></i></i></label>
+                    <input type="text" name="username" id="username" require autofocus placeholder="Enter your username" autocomplete="0">
                 </div>
 
                 <div class="pass">
                     <label for="password"><i class="fa-solid fa-key"></i></label>
                     <input type="password" name="password" id="password" require placeholder="Enter your password">
                     <i class="fa-solid fa-eye" id="eye"></i>
+                </div>
+
+                <div class="remember">
+                    <div class="box1">
+                        <input type="checkbox">
+                        <label for="me">Remember Me</label>
+                    </div>
+
+                    <div class="box2">
+                        <a href="#">Forgor password?</a>
+                    </div>
                 </div>
 
                 <div class="buttLog">

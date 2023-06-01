@@ -90,3 +90,22 @@ button {
   border-radius: 7px;
   font-weight: bold;
 }
+
+.remember {
+  width: 300px;
+  margin: auto;
+  font-size: 12px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember input {
+  width: 20px;
+  height: 12px;
+}
+
+.box2 a {
+  color: blue;
+  text-decoration: none;
+}
