@@ -16,6 +16,9 @@ if (isset($_POST["cari"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
 
+    <!-- font aws -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="../css/dasboard_style/admin_style.css">
 </head>
@@ -29,9 +32,11 @@ if (isset($_POST["cari"])) {
 
             <div class="admin">
                 <ul>
-                    <li>Data Produk</li>
-                    <li>Module</li>
-                    <li>Setting Website</li>
+                    <li><i class="fa-solid fa-cart-shopping"></i><a href="../obat.php">Product</a></li>
+                    <li><i class="fa-solid fa-table"></i>Dashboard</li>
+                    <li><i class="fa-solid fa-chart-pie"></i>Statistic</li>
+                    <li><i class="fa-solid fa-bars-progress"></i>Stok</li>
+                    <li><i class="fa-solid fa-comment-dollar"></i>Offer</li>
                     <li><a href="#">Logout</a></li>
                 </ul>
             </div>
@@ -39,7 +44,7 @@ if (isset($_POST["cari"])) {
 
         <div class="box-right">
             <div class="header">
-                <p>Halaman Admin</p>
+                <h1>Halaman Admin</h1>
             </div>
 
             <div class="data_produk">
@@ -71,12 +76,12 @@ if (isset($_POST["cari"])) {
                         <?php $i = 1; ?>
                         <?php foreach ($toko_obat as $row) : ?>
                             <tr>
-                                <td></td>
+                                <td><?= $i; ?></td>
                                 <td><?= $row["nama"]; ?></td>
                                 <td>Rp <?= $row["harga"]; ?>.000</td>
                                 <td><?= $row["stok"]; ?></td>
                                 <td><img src="../img/<?= $row["gambar"]; ?>" width="50" alt=""></td>
-                                <td><a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a> |
+                                <td><a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a>
                                     <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
                                 </td>
                             </tr>

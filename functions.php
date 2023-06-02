@@ -137,3 +137,28 @@ function cari($keyword)
             ";
     return ambilData($query);
 }
+
+function registrasi($post)
+{
+    global $koneksi;
+
+    $username = strtolower(stripslashes($post["username"]));
+    $password = mysqli_real_escape_string($koneksi, $post["password"]);
+    $email = strtolower(stripslashes($post["email"]));
+
+    $result = mysqli_query($koneksi, "SELECT username FROM users WHERE username = '$username'");
+
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('username sudah terdafdar!');
+            </script>";
+
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_query($koneksi, "INSERT INTO users VALUES(NULL, '$username', '$password', '$email')");
+
+    return mysqli_affected_rows($koneksi);
+}

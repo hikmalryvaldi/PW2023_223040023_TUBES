@@ -1,4 +1,5 @@
 <?php
+require '../functions.php';
 
 if (isset($_POST["login"])) {
 
@@ -7,7 +8,25 @@ if (isset($_POST["login"])) {
 
     if ($username === "admin" && $password === "111") {
         header("Location: ../Dashboard/Admin.php");
-        exit();
+        exit;
+    }
+
+    $result = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
+
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            header("Location: ../page.php");
+            exit;
+        }
+    }
+
+    $error = true;
+
+    if (isset($error)) {
+        echo "<script>
+                alert('username / password salah!');
+            </script>";
     }
 }
 

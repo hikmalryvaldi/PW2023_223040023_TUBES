@@ -1,3 +1,20 @@
+<?php
+
+require '../functions.php';
+
+if (isset($_POST["register"])) {
+    if (registrasi($_POST) > 0) {
+        echo "<script>
+                alert('user berhasil ditambahkan!');
+            </script>";
+        header("Location: ../Account/Login.php");
+    } else {
+        echo mysqli_error($koneksi);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
