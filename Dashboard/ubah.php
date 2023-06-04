@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+// if (isset($_SESSION["login"])) {
+//     $username !== "admin" && $password !== "admin";
+//     header("Location: ../page.php");
+//     exit;
+// }
+
+if (!isset($_SESSION["login"])) {
+    header("Location: Account/login.php");
+}
+
 require '../functions.php';
 
 $id = $_GET["id"];
@@ -9,7 +21,7 @@ if (isset($_POST["submit"])) {
     if (ubah($_POST) > 0) {
         echo "<script>
                 alert('data berhasil diubah!');
-                document.location.href = 'Admin.php';
+                document.location.href = 'index.php';
             </script>";
     }
 }

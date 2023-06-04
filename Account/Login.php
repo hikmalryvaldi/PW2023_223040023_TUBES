@@ -1,25 +1,59 @@
 <?php
+session_start();
+
 require '../functions.php';
+
+if (isset($_SESSION["login"])) {
+    header("Location: ../Dashboard/index.php");
+    exit;
+}
+
+// if (isset($_POST["ladmin"])) {
+//     $username = $_POST["username"];
+//     $password = $_POST["password"];
+
+//     $result = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
+
+//     if ($username === "admin" && $password === "admin") {
+//         $_SESSION["ladmin"] = true;
+//         header("Location: ../Dashboard/Admin.php");
+//         exit;
+//     }
+// }
 
 if (isset($_POST["login"])) {
 
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    if ($username === "admin" && $password === "111") {
-        header("Location: ../Dashboard/Admin.php");
-        exit;
-    }
-
     $result = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
-            header("Location: ../page.php");
-            exit;
+            // set session
+            $_SESSION['login'] = true;
+
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['role'] = $row['role'];
+
+            if ($row['role'] == 'admin') {
+                header("Location: ../Dashboard/index.php");
+            } elseif ($row['role'] == 'user') {
+                header("Location: ../index.php");
+                exit;
+            }
         }
     }
+    // if (mysqli_num_rows($result) === 1) {
+    //     $row = mysqli_fetch_assoc($result);
+    //     if (password_verify($password, $row["password"])) {
+    //         $_SESSION["login"] = true;
+
+    //         header("Location: ../page.php");
+    //         exit;
+    //     }
+    // }
 
     $error = true;
 
@@ -78,7 +112,7 @@ if (isset($_POST["login"])) {
                 </div>
 
                 <div class="buttLog">
-                    <button type="submit" name="login">Login Now</button>
+                    <button type="submit" name="login" name="login">Login Now</button>
                     <p>Don't have an account? <a href="Register.php">Sigup Now</a></p>
                 </div>
 

@@ -13,7 +13,7 @@
   width: 100%;
   height: 65px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   border-bottom: 2px solid #d9d9d9;
@@ -21,6 +21,11 @@
   /* margin-bottom: 30px; */
   position: fixed;
   z-index: 20;
+}
+
+.box_left {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -50,7 +55,42 @@
   color: #0088a9;
 }
 
-a.focus {
+.dropdown img {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  right: 0%;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  /* padding: 10px 20px 10px 5px; */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+/* a.focus {
   color: #0088a9;
 }
 
@@ -80,7 +120,7 @@ button a {
 .login button:active {
   background-color: #0088a900;
   transform: translateY(2px);
-}
+} */
 
 /* .header-bg {
   padding: 100px;
@@ -558,3 +598,164 @@ textarea {
 }
 
 /* Responsive */
+@media (max-width: 1525px) {
+  header {
+    width: 100%;
+  }
+
+  .content-halok {
+    width: 500px;
+    position: relative;
+    left: 10%;
+  }
+
+  .header-bg-img img {
+    left: 55%;
+  }
+}
+
+@media (max-width: 1200px) {
+  header {
+    width: 100%;
+  }
+
+  .content-halok {
+    width: 500px;
+    position: relative;
+    left: 0%;
+    /* background-color: red; */
+  }
+
+  .dokter-header {
+    width: 1000px;
+  }
+
+  .container-dokter {
+    width: 1000px;
+  }
+
+  .dokter-img {
+    margin-bottom: 10px;
+  }
+
+  .dokter-text p {
+    font-size: 14px;
+  }
+
+  .card-dokter {
+    width: 150px;
+    height: 150px;
+  }
+
+  .header-artikel {
+    width: 1000px;
+  }
+
+  .artikel-list {
+    width: 1000px;
+  }
+
+  .artikel-list li {
+    padding: 0 50px;
+  }
+
+  .artikel-item {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .artikel-card {
+    width: 250px;
+  }
+
+  .about {
+    width: 1000px;
+  }
+
+  .kontak-header {
+    width: 1000px;
+  }
+
+  .container-kontak {
+    width: 1000px;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    width: 100%;
+  }
+
+  .content-halok {
+    /* background-color: green; */
+    left: 10%;
+  }
+
+  .header-bg-img img {
+    left: 54%;
+  }
+
+  .banner-content {
+    left: 0%;
+  }
+
+  .header-bg-img {
+    width: 900px;
+  }
+
+  .dokter-header {
+    width: 850px;
+  }
+
+  .container-dokter {
+    width: 850px;
+  }
+
+  .header-artikel {
+    width: 900px;
+  }
+
+  .artikel-list {
+    width: 900px;
+  }
+
+  .artikel-card {
+    width: 220px;
+  }
+
+  .artikel-item {
+    width: 900px;
+  }
+
+  .dokter {
+    width: 900px;
+  }
+
+  .artikel-text {
+    width: 220px;
+  }
+
+  .artikel-text h4 {
+    font-size: 12px;
+    width: 200px;
+  }
+
+  .artikel-text p {
+    font-size: 10px;
+    width: 200px;
+  }
+
+  .about {
+    width: 900px;
+  }
+
+  .kontak-header {
+    width: 850px;
+  }
+
+  .container-kontak {
+    width: 850px;
+  }
+}

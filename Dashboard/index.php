@@ -1,6 +1,13 @@
 <?php
+session_start();
+
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: ../index.php");
+    exit;
+}
+
 require '../functions.php';
-$toko_obat = ambilData("SELECT * FROM obat");
+$toko_obat = ambilData("SELECT * FROM obat LIMIT 6");
 
 if (isset($_POST["cari"])) {
     $toko_obat = cari($_POST["keyword"]);
@@ -37,7 +44,7 @@ if (isset($_POST["cari"])) {
                     <li><i class="fa-solid fa-chart-pie"></i>Statistic</li>
                     <li><i class="fa-solid fa-bars-progress"></i>Stok</li>
                     <li><i class="fa-solid fa-comment-dollar"></i>Offer</li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="../Account/logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>

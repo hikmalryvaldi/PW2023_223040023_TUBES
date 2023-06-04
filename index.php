@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: Account/login.php");
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" id="beranda">
 
@@ -16,22 +28,29 @@
 <body>
     <header>
         <div class="navbar">
-            <div class="logo">
-                <h3>HaloK</h3>
+            <div class="box_left">
+                <div class="logo">
+                    <h3>HaloK</h3>
+                </div>
+
+                <div class="link">
+                    <ul>
+                        <li><a href="#beranda" class="focus">Beranda</a></li>
+                        <li><a href="#dokter">Dokter</a></li>
+                        <li><a href="#artikel">Artikel</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="link">
-                <ul>
-                    <li><a href="#beranda" class="focus">Beranda</a></li>
-                    <li><a href="#dokter">Dokter</a></li>
-                    <li><a href="#artikel">Artikel</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </div>
-
-            <div class="login">
-                <button><a href="login.php" target="_self">Login</a></button>
+            <div class="box_right">
+                <div class="dropdown">
+                    <img src="img/profil/default.png" width="45" alt="profile" onclick="myFunction()" class="dropbtn">
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="Account/logout.php">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -316,5 +335,7 @@
         </div>
     </div>
 </body>
+
+<script src="js/dropdown.js"></script>
 
 </html>

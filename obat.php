@@ -1,6 +1,33 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: Account/login.php");
+}
+
+// if (isset($_SESSION["login"])) {
+//     $row["username"] && $row["password"];
+//     header("Location: obat.php");
+//     exit;
+// }
+// elseif (!isset($_SESSION["login"])) {
+//     header("Location: page.php");
+// }
+
+// if (!isset($_SESSION["login2"])) {
+//     header("Location: Account/login.php");
+// }
+
+
+
+
+
+
+
+
 require 'functions.php';
-$toko_obat = ambilData("SELECT * FROM obat");
+$toko_obat = ambilData("SELECT * FROM obat LIMIT 8");
 
 ?>
 
@@ -26,11 +53,9 @@ $toko_obat = ambilData("SELECT * FROM obat");
 
     <div class="link">
         <ul>
-            <li><a href="page.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <i class="fa-solid fa-chevron-right"></i>
             <li><a href="#"><span>Obat</span></a></li>
-            <i class="fa-solid fa-chevron-right"></i>
-            <li><a href="tambah.php">Tambah Obat</a></li>
         </ul>
     </div>
 

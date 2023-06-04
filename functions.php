@@ -158,7 +158,7 @@ function registrasi($post)
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_query($koneksi, "INSERT INTO users VALUES(NULL, '$username', '$password', '$email')");
+    mysqli_query($koneksi, "INSERT INTO users VALUES(NULL, '$username', '$password', '$email', DEFAULT)");
 
     return mysqli_affected_rows($koneksi);
 }

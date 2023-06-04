@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: Account/login.php");
+}
 require '../functions.php';
 
 // ambil data di url
@@ -26,7 +31,7 @@ $obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
 <body>
     <div class="link">
         <ul>
-            <li><a href="../page.php">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <i class="fa-solid fa-chevron-right"></i>
             <li><a href="../obat.php">Obat</a></li>
             <i class="fa-solid fa-chevron-right"></i>
@@ -87,8 +92,8 @@ $obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
                 </div>
 
                 <div class="beli">
-                    <button>
-                        <a href="../cart/beli.php?id=<?= $row["id"]; ?>">Beli</a>
+                    <button type="submit" name="beli">
+                        <a href="#?id=<?= $obat["id"]; ?>">Beli</a>
                     </button>
                 </div>
             </div>

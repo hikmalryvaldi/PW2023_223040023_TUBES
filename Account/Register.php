@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+// if (isset($_SESSION["login"])) {
+//     $username !== "admin" && $password !== "admin";
+//     header("Location: ../page.php");
+//     exit;
+// }
+
+if (!isset($_SESSION["login"])) {
+    header("Location: Account/login.php");
+}
+
 
 require '../functions.php';
 
