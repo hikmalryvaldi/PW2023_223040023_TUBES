@@ -74,7 +74,7 @@ $toko_obat = ambilData("SELECT * FROM obat LIMIT 8");
 
                     <div class="detail-harga">
                         <div class="harga-produk">
-                            Rp <?= $row["harga"]; ?>.000
+                            Rp <?= number_format($row["harga"]); ?>
                         </div>
 
                         <div class="d-produk">
@@ -83,7 +83,7 @@ $toko_obat = ambilData("SELECT * FROM obat LIMIT 8");
                             </div>
 
                             <div class="harga-asli-produk">
-                                Rp <?= $row["harga_awal"]; ?>.000
+                                Rp <?= number_format($row["harga_awal"]); ?>
                             </div>
                         </div>
                     </div>

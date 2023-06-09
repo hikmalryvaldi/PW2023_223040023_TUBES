@@ -7,8 +7,13 @@ session_start();
 //     exit;
 // }
 
-if (!isset($_SESSION["login"])) {
-    header("Location: Account/login.php");
+// if (!isset($_SESSION["login"])) {
+//     header("Location: Account/login.php");
+// }
+
+if (isset($_SESSION["login"])) {
+    header("Location: ../Dashboard/index.php");
+    exit;
 }
 
 

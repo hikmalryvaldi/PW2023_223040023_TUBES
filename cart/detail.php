@@ -59,7 +59,7 @@ $obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
                 </div>
 
                 <div class="harga">
-                    <h1>Rp <?= $obat["harga"]; ?>.000</h1>
+                    <h1>Rp <?= number_format($obat["harga"]); ?></h1>
 
                     <div class="promo">
                         <div class="diskon">
@@ -67,7 +67,7 @@ $obat = ambilData("SELECT * FROM obat WHERE id = $id")[0];
                         </div>
 
                         <div class="harga-asli">
-                            Rp <?= $obat["harga_awal"]; ?>.000
+                            Rp <?= number_format($obat["harga_awal"]); ?>
                         </div>
                     </div>
                 </div>

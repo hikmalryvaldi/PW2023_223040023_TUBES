@@ -7,7 +7,16 @@ if ($_SESSION['role'] !== 'admin') {
 }
 
 require '../functions.php';
-$toko_obat = ambilData("SELECT * FROM obat LIMIT 6");
+
+$dataPerhalaman = 5;
+$result = mysqli_query($koneksi, "SELECT * FROM obat");
+$jumlahdata = count(ambilData("SELECT * FROM obat"));
+$jumlahHalaman = ceil($jumlahdata / $dataPerhalaman);
+$halaman = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($dataPerhalaman * $halaman) - $dataPerhalaman;
+
+$toko_obat = ambilData("SELECT * FROM obat LIMIT $awalData, $dataPerhalaman");
+// $toko_obat = ambilData("SELECT * FROM obat");
 
 if (isset($_POST["cari"])) {
     $toko_obat = cari($_POST["keyword"]);
@@ -28,6 +37,7 @@ if (isset($_POST["cari"])) {
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="../css/dasboard_style/admin_style.css">
+
 </head>
 
 <body>
@@ -51,54 +61,88 @@ if (isset($_POST["cari"])) {
 
         <div class="box-right">
             <div class="header">
-                <h1>Halaman Admin</h1>
-            </div>
-
-            <div class="data_produk">
-                <div class="daftar_produk">
-                    <h4>Daftar Produk</h4>
+                <div class="h-flex">
+                    <h1>Halaman Admin</h1>
+                    <a href="../index.php">Home</a>
                 </div>
 
-                <div class="tambah_obat">
-                    <a href="tambah.php">Tambah Obat</a>
-                    <form action="" method="post">
+                <div class="data_produk">
+                    <div class="daftar_produk">
+                        <div class="tittle">
+                            <h4>Daftar Produk</h4>
+                        </div>
 
-                        <input type="text" name="keyword" size="20" autofocus placeholder="Cari Obat" autocomplete="off">
-                        <button type="submit" name="cari">Cari</button>
+                        <div class="invoice">
+                            <button onclick="generatePDF()">Download PDF</button>
+                        </div>
 
-                    </form>
-                </div>
+                    </div>
 
-                <div class="table_obat">
-                    <table border="1" cellpadding="10" cellspacing="0">
-                        <tr>
-                            <th>No</th>
-                            <th>Obat</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Gambar</th>
-                            <th>Aksi</th>
-                        </tr>
+                    <div class="tambah_obat">
+                        <a href="tambah.php">Tambah Obat</a>
+                        <form action="" method="post">
 
-                        <?php $i = 1; ?>
-                        <?php foreach ($toko_obat as $row) : ?>
+                            <input type="text" name="keyword" size="20" placeholder="Cari Obat" autocomplete="off" id="keyword">
+                            <button type="submit" name="cari" id="tombol-cari">Cari</button>
+
+                        </form>
+                    </div>
+
+                    <div class="table_obat" id="container">
+                        <table border="1" cellpadding="10" cellspacing="0" id="invoice">
                             <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $row["nama"]; ?></td>
-                                <td>Rp <?= $row["harga"]; ?>.000</td>
-                                <td><?= $row["stok"]; ?></td>
-                                <td><img src="../img/<?= $row["gambar"]; ?>" width="50" alt=""></td>
-                                <td><a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a>
-                                    <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
-                                </td>
+                                <th>No</th>
+                                <th>Obat</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th>Gambar</th>
+                                <th>Aksi</th>
                             </tr>
-                            <?php $i++; ?>
-                        <?php endforeach ?>
-                    </table>
+
+                            <?php $i = 1; ?>
+                            <?php foreach ($toko_obat as $row) : ?>
+                                <tr>
+                                    <td><?= $i + $awalData; ?></td>
+                                    <td><?= $row["nama"]; ?></td>
+                                    <td>Rp <?= number_format($row["harga"]); ?></td>
+                                    <td><?= $row["stok"]; ?></td>
+                                    <td><img src="../img/<?= $row["gambar"]; ?>" width="50" alt=""></td>
+                                    <td><a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a>
+                                        <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
+                                    </td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach ?>
+                        </table>
+
+                    </div>
+
+
+                    <!-- Navigasi -->
+
+                    <div class="nav">
+                        <?php if ($halaman > 1) : ?>
+                            <a href="?halaman=<?= $halaman - 1 ?>">&laquo;</a>
+                        <?php endif; ?>
+                        <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                            <?php if ($i == $halaman) : ?>
+                                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; color: blue;"><?= $i; ?></a>
+                            <?php else : ?>
+                                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                        <?php if ($halaman < $jumlahHalaman) : ?>
+                            <a href="?halaman=<?= $halaman + 1 ?>">&raquo;</a>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
+    <script src="../js/script.js"></script>
+
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 </body>
 
 </html>

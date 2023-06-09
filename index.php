@@ -5,7 +5,18 @@ if (!isset($_SESSION["login"])) {
     header("Location: Account/login.php");
 }
 
-
+if (isset($_SESSION['role'])) {
+    // Pengguna sudah login
+    if ($_SESSION['role'] == 'admin') {
+        $user_logged_in = 'admin';
+    } else {
+        $user_logged_in = 'user';
+    }
+    $user_logged_in = true;
+} else {
+    // Pengguna belum login
+    $user_logged_in = false;
+}
 
 
 ?>
@@ -48,7 +59,23 @@ if (!isset($_SESSION["login"])) {
                 <div class="dropdown">
                     <img src="img/profil/default.png" width="45" alt="profile" onclick="myFunction()" class="dropbtn">
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="Account/logout.php">Logout</a>
+                        <?php if (isset($_SESSION['role'])) {
+                            $user_logged_in = $_SESSION['role']; ?>
+                            <?php if ($user_logged_in == 'admin') { ?>
+                                <a href="Dashboard/index.php">Halaman Admin</a>
+                                <a href="Account/logout.php">Logout</a>
+                                <a href="#beranda" class="focus hide">Beranda</a>
+                                <a href="#dokter" class="hide">Dokter</a>
+                                <a href="#about" class="hide">Tentang Kami</a>
+                                <a href="#kontak" class="hide">Kontak</a>
+                            <?php } else { ?>
+                                <a href="Account/logout.php">Logout</a>
+                                <a href="#beranda" class="focus hide">Beranda</a>
+                                <a href="#dokter" class="hide">Dokter</a>
+                                <a href="#about" class="hide">Tentang Kami</a>
+                                <a href="#kontak" class="hide">Kontak</a>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

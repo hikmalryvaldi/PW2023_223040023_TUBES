@@ -80,6 +80,13 @@
   /* width: 100%; */
   height: 60px;
   padding: 20px;
+  background-color: rgb(214, 214, 223);
+  padding-bottom: 60px;
+}
+
+.h-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .header p {
@@ -97,6 +104,12 @@
 .daftar_produk {
   padding: 20px;
   border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice {
+  width: 100px;
 }
 
 .daftar_produk h4 {

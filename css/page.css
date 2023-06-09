@@ -598,6 +598,12 @@ textarea {
 }
 
 /* Responsive */
+@media (min-width: 1525px) {
+  .dropdown .dropdown-content .hide {
+    display: none;
+  }
+}
+
 @media (max-width: 1525px) {
   header {
     width: 100%;
@@ -757,5 +763,31 @@ textarea {
 
   .container-kontak {
     width: 850px;
+  }
+}
+
+@media (min-width: 769px) {
+  .dropdown .dropdown-content .hide {
+    display: none;
+  }
+}
+
+@media (width <= 768px) {
+  .link {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+  }
+
+  .link {
+    display: none;
+  }
+
+  .content-halok {
+    background-color: red;
   }
 }

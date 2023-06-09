@@ -9,7 +9,7 @@ if (isset($_SESSION["login"])) {
 }
 
 // if (isset($_POST["ladmin"])) {
-//     $username = $_POST["username"];
+//     $username = $_POST["username"];7
 //     $password = $_POST["password"];
 
 //     $result = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
@@ -38,7 +38,7 @@ if (isset($_POST["login"])) {
             $_SESSION['role'] = $row['role'];
 
             if ($row['role'] == 'admin') {
-                header("Location: ../Dashboard/index.php");
+                header("Location: ../index.php");
             } elseif ($row['role'] == 'user') {
                 header("Location: ../index.php");
                 exit;
