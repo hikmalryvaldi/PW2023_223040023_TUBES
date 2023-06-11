@@ -158,18 +158,18 @@ button a {
   background-color: #f6f8fc;
 }
 
-.banner-header {
+.headerSection {
   width: 461px;
   height: 98px;
 }
 
-.banner-header h1 {
+.headerSection h1 {
   font-size: 32px;
   margin: 10px 0;
   color: #535556;
 }
 
-.banner-header p {
+.headerSection p {
   font-size: 14px;
   color: #666;
 }
@@ -788,6 +788,15 @@ textarea {
   }
 
   .content-halok {
-    background-color: red;
+    background-color: green;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    width: 100%;
+  }
+
+  .content-halok {
   }
 }

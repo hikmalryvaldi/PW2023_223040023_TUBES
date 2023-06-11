@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 09, 2023 at 02:13 PM
+-- Generation Time: Jun 11, 2023 at 02:35 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `keranjang` (
   `id` int NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `gambar` varchar(100) NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `gambar` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `stok` int NOT NULL,
   `harga` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,12 +43,12 @@ CREATE TABLE `keranjang` (
 
 CREATE TABLE `obat` (
   `id` int NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `harga` int UNSIGNED NOT NULL,
   `harga_awal` int DEFAULT NULL,
   `stok` int NOT NULL DEFAULT '0',
-  `gambar` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `gambar` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `obat`
@@ -61,7 +61,8 @@ INSERT INTO `obat` (`id`, `nama`, `harga`, `harga_awal`, `stok`, `gambar`) VALUE
 (29, 'Obat Sidaguri', 655000, 700000, 21, '647dab6e079f4.jpg'),
 (30, 'Obat Syaraf Kejepit', 900000, 700000, 234, '647dab8336fe7.jpg'),
 (31, 'Panadol', 250000, 10000, 99, '647daba0ce0b5.jpg'),
-(32, 'Bodrex', 300000, 25000, 45, '647dabd5e1902.jpg');
+(32, 'Bodrex', 300000, 25000, 45, '647dabd5e1902.jpg'),
+(33, 'Antimo', 70000, 100000, 87, '64851fc298545.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,20 +72,21 @@ INSERT INTO `obat` (`id`, `nama`, `harga`, `harga_awal`, `stok`, `gambar`) VALUE
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `role` varchar(20) DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `role` varchar(20) COLLATE utf8mb4_general_ci DEFAULT 'user',
+  `kode_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
-(17, 'hikmal', '$2y$10$Wkxq5hQDBCxyMD31bckKTeOASXvxd.tudgujEzGs8td9TJvLH83eW', 'hikmal@gmail.com', 'user'),
-(18, 'admin', '$2y$10$mI0GUFfs40m8c7DtfK2oxucZ6CGSdQCAwYyB95kcRwp21c5C75db6', 'admin@gmail.com', 'admin'),
-(19, 'ojan', '$2y$10$AkC38g1sQlgPTqmny6HYweg08gYKSOBu3jiGsNycULBsEcyK02R5W', 'ojan@wibu.com', 'user');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `kode_id`) VALUES
+(17, 'hikmal', '$2y$10$Wkxq5hQDBCxyMD31bckKTeOASXvxd.tudgujEzGs8td9TJvLH83eW', 'hikmal@gmail.com', 'user', NULL),
+(18, 'admin', '$2y$10$mI0GUFfs40m8c7DtfK2oxucZ6CGSdQCAwYyB95kcRwp21c5C75db6', 'admin@gmail.com', 'admin', NULL),
+(19, 'ojan', '$2y$10$AkC38g1sQlgPTqmny6HYweg08gYKSOBu3jiGsNycULBsEcyK02R5W', 'ojan@wibu.com', 'user', NULL);
 
 --
 -- Indexes for dumped tables
@@ -106,7 +108,8 @@ ALTER TABLE `obat`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kode_id` (`kode_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -122,13 +125,23 @@ ALTER TABLE `keranjang`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`kode_id`) REFERENCES `obat` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -88,10 +88,16 @@ if (isset($_SESSION['role'])) {
         </div>
 
         <div class="banner-content">
-            <div class="banner-header">
+            <!-- <div class="banner-header">
                 <h1>Konsultasi Dengan Dokter</h1>
                 <p>
                     Dapatkan solusi untuk masalah kesehatan Anda, semua bisa di haloK.
+                </p>
+            </div> -->
+            <div class="headerSection">
+                <h1>Konsultasi Dengan Dokter</h1>
+                <p>
+                    Dapatkan solusi untuk masalah kesehatan anda, semua bisa di haloK
                 </p>
             </div>
 
