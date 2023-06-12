@@ -107,3 +107,9 @@ button {
   width: 20px;
   height: 12px;
 }
+
+@media (max-width: 428px) {
+  .container {
+    left: 0%;
+  }
+}

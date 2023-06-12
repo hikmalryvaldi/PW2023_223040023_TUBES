@@ -18,7 +18,6 @@
   padding: 0 20px;
   border-bottom: 2px solid #d9d9d9;
   margin: auto;
-  /* margin-bottom: 30px; */
   position: fixed;
   z-index: 20;
 }
@@ -78,7 +77,6 @@
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
-  /* padding: 10px 20px 10px 5px; */
   text-decoration: none;
   display: block;
 }
@@ -90,47 +88,6 @@
 .show {
   display: block;
 }
-/* a.focus {
-  color: #0088a9;
-}
-
-.login {
-  position: relative;
-  left: 48%;
-}
-
-button a {
-  text-decoration: none;
-  color: #e4f0f1;
-}
-
-.login button {
-  background-color: #61c7b5;
-  border: none;
-  padding: 5px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.login button:hover {
-  background-color: #0088a999;
-}
-
-.login button:active {
-  background-color: #0088a900;
-  transform: translateY(2px);
-} */
-
-/* .header-bg {
-  padding: 100px;
-} */
-
-/* header {
-  height: 420px;
-
-  background-size: cover;
-} */
 
 .header-bg {
   background-color: #f6f8fc;
@@ -185,7 +142,6 @@ button a {
 .card {
   width: 180px;
   height: 120px;
-  /* background-color: red; */
   background-color: #ffffff;
   border: 2px solid #d9d9d9;
   border-radius: 5px;
@@ -227,7 +183,6 @@ button a {
 .card-download {
   width: 378px;
   height: 88px;
-  /* text-align: center; */
   background-color: white;
   border: 2px solid #d9d9d9;
   padding-top: 5px;
@@ -311,7 +266,6 @@ button a {
 .dokter-img {
   width: 130px;
   height: 80px;
-  /* background-color: red; */
   margin: auto;
   display: flex;
   justify-content: center;
@@ -348,7 +302,7 @@ button a {
 }
 
 .artikel-list {
-  max-width: 1180px;
+  width: 1180px;
   color: #535556;
   margin: auto;
   padding-top: 20px;
@@ -363,7 +317,6 @@ button a {
 .artikel-list li {
   list-style: none;
   font-size: 14px;
-  /* background: red; */
   margin-right: 10px;
   display: flex;
   align-items: center;
@@ -387,9 +340,8 @@ button a {
 }
 
 .artikel-item {
-  max-width: 1180px;
+  width: 1180px;
   padding-top: 50px;
-  /* height: 285px; */
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -464,7 +416,6 @@ button a {
   width: 665px;
   height: 406px;
   padding: 0 16px 16px 16px;
-  /* line-height: 23px; */
 }
 
 .about-text h1 {
@@ -573,7 +524,6 @@ textarea {
 .kontak-email {
   display: flex;
   flex-direction: column;
-  /* line-height: 25px; */
 }
 
 .kontak-email p {
@@ -604,19 +554,19 @@ textarea {
   }
 }
 
-@media (max-width: 1525px) {
+@media (max-width: 1400px) {
   header {
     width: 100%;
   }
 
   .content-halok {
-    width: 500px;
+    /* width: 200px; */
     position: relative;
-    left: 10%;
+    left: 0%;
   }
 
   .header-bg-img img {
-    left: 55%;
+    left: 65%;
   }
 }
 
@@ -629,7 +579,26 @@ textarea {
     width: 500px;
     position: relative;
     left: 0%;
-    /* background-color: red; */
+    top: 12%;
+  }
+
+  .headerSection {
+    position: absolute;
+    top: -12%;
+  }
+
+  .content-halok .card {
+    width: 45%;
+    height: 80%;
+  }
+
+  .content-halok .card img {
+    width: 25%;
+    height: 20%;
+  }
+
+  .header-bg-img img {
+    left: 53%;
   }
 
   .dokter-header {
@@ -689,18 +658,25 @@ textarea {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   header {
     width: 100%;
   }
 
+  .headerSection {
+    position: absolute;
+    left: 10%;
+    top: -15%;
+  }
+
   .content-halok {
-    /* background-color: green; */
+    /* background-color: red; */
     left: 10%;
   }
 
   .header-bg-img img {
-    left: 54%;
+    left: 63%;
+    width: 40%;
   }
 
   .banner-content {
@@ -712,11 +688,13 @@ textarea {
   }
 
   .dokter-header {
-    width: 850px;
+    width: 720px;
   }
 
   .container-dokter {
+    position: relative;
     width: 850px;
+    left: 7%;
   }
 
   .header-artikel {
@@ -766,6 +744,67 @@ textarea {
   }
 }
 
+@media (width <= 1024px) {
+  .header-bg-img img {
+    width: 35vw;
+  }
+
+  .container-dokter {
+    position: relative;
+    left: 5%;
+    width: 36vw;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card-dokter {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 884px) {
+  .dokter {
+    max-width: 100%;
+  }
+
+  .header-bg {
+    max-width: 100%;
+  }
+
+  .header-bg-img img {
+    left: 60%;
+  }
+
+  .content-halok {
+    left: 5%;
+  }
+
+  .container-dokter {
+    width: 90%;
+    left: 25%;
+  }
+
+  .card-dokter {
+    width: 47vw;
+  }
+
+  .about {
+    max-width: 100%;
+  }
+
+  .about img {
+    width: 90%;
+  }
+
+  .form-social {
+    display: none;
+  }
+
+  .form-kontak {
+    margin: auto;
+  }
+}
+
 @media (min-width: 769px) {
   .dropdown .dropdown-content .hide {
     display: none;
@@ -787,8 +826,40 @@ textarea {
     display: none;
   }
 
+  .container-dokter {
+    left: -9%;
+  }
+
   .content-halok {
-    background-color: green;
+    left: 2%;
+  }
+
+  .header-bg-img img {
+    width: 30%;
+    left: 53%;
+  }
+
+  .headerSection {
+    left: 2%;
+  }
+
+  .container-dokter {
+    width: 50%;
+    left: 0%;
+  }
+
+  .hide-artikel {
+    display: none;
+  }
+
+  .artikel-list {
+    width: 100%;
+  }
+
+  .artikel-item {
+    width: 100%;
+    justify-content: space-evenly;
+    margin-right: 0;
   }
 }
 
@@ -796,7 +867,129 @@ textarea {
   header {
     width: 100%;
   }
+}
+
+@media (max-width: 428px) {
+  .header-bg-img img {
+    display: none;
+  }
 
   .content-halok {
+    width: 115vw;
+    gap: 10px;
+  }
+
+  .hide-card {
+    display: none;
+  }
+
+  .content-halok .card {
+    width: 25%;
+  }
+
+  .banner-content {
+    position: relative;
+  }
+
+  .headerSection {
+    position: relative;
+    top: 20%;
+  }
+
+  .headerSection h1 {
+    font-size: 20px;
+  }
+
+  .headerSection p {
+    width: 80%;
+  }
+
+  .artikel-list {
+    width: 400px;
+    height: 100px;
+  }
+
+  .header-artikel {
+    width: 428px;
+  }
+
+  .header-artikel h1 {
+    width: 428px;
+  }
+
+  .artikel-list ul {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .artikel-list li {
+    padding: 10px;
+  }
+
+  .artikel-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .artikel-card {
+    width: 80%;
+    margin: auto;
+  }
+
+  .artikel-text {
+    width: 300px;
+  }
+
+  .artikel-text p {
+    width: 100%;
+  }
+
+  p.button-text {
+    max-width: 90%;
+  }
+
+  .card-download {
+    width: 80%;
+  }
+
+  .about {
+    margin-top: 300px;
+  }
+
+  .about-img img {
+    display: none;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  .about-text h1 {
+    width: 428px;
+  }
+
+  .kontak {
+    margin-top: 100px;
+  }
+
+  .container-kontak {
+    max-width: 428px;
+    padding-left: 20px;
+  }
+
+  .container-kontak input,
+  textarea {
+    width: 380px;
+  }
+}
+
+@media (width <= 427px) {
+  .container-kontak {
+    padding-left: 10px;
+  }
+
+  .container-kontak input,
+  textarea {
+    width: 360px;
   }
 }

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["login"])) {
-    header("Location: Account/login.php");
+    header("Location: Account/Login.php");
 }
 
 if (isset($_SESSION['role'])) {
@@ -65,7 +65,7 @@ if (isset($_SESSION['role'])) {
                                 <a href="Dashboard/index.php">Halaman Admin</a>
                                 <a href="Account/logout.php">Logout</a>
                                 <a href="#beranda" class="focus hide">Beranda</a>
-                                <a href="#dokter" class="hide">Dokter</a>
+                                <a href="#dokter">Dokter</a>
                                 <a href="#about" class="hide">Tentang Kami</a>
                                 <a href="#kontak" class="hide">Kontak</a>
                             <?php } else { ?>
@@ -88,12 +88,6 @@ if (isset($_SESSION['role'])) {
         </div>
 
         <div class="banner-content">
-            <!-- <div class="banner-header">
-                <h1>Konsultasi Dengan Dokter</h1>
-                <p>
-                    Dapatkan solusi untuk masalah kesehatan Anda, semua bisa di haloK.
-                </p>
-            </div> -->
             <div class="headerSection">
                 <h1>Konsultasi Dengan Dokter</h1>
                 <p>
@@ -134,7 +128,7 @@ if (isset($_SESSION['role'])) {
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card hide-card">
                     <div class="card-img">
                         <img src="img/Header Img/CarsJanjiRS.png" alt="RS" />
                     </div>
@@ -260,7 +254,7 @@ if (isset($_SESSION['role'])) {
                 </div>
             </div>
 
-            <div class="artikel-card">
+            <div class="artikel-card  hide-artikel">
                 <img src="img/Artikel Img/Jus.jpg" alt="artikel" />
 
                 <div class="artikel-text">
@@ -273,7 +267,7 @@ if (isset($_SESSION['role'])) {
                 </div>
             </div>
 
-            <div class="artikel-card">
+            <div class="artikel-card  hide-artikel">
                 <img src="img/Artikel Img/Perawat.png" alt="artikel" />
 
                 <div class="artikel-text">
